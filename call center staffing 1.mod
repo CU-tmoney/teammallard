@@ -5,6 +5,13 @@
 # 2. The call volume varies Monday through friday
 # Goal: Minimize Staffing Costs
 
+# Part 1: Decision Variables
+var x{i,j,k} > 0 integer;
+
+# Part 2: Objective Function
+
+# Part 3: Constraints
+
 param n; # number of variables
 param m; # number of constraints
 
