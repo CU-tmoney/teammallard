@@ -1,10 +1,10 @@
 # Simple Staffing Model 1
 
 # Number of Shifts
-param n = 5;
+param m = 5;
 
 # Hours in a Workday
-param m = 12;
+param n = 12;
 
 # Shift Coefficeint Matrix
 param a:
