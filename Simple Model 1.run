@@ -5,7 +5,7 @@ reset;
 model 'Simple Model 1.mod';
 
 # Load the data
-data 'Simple Model 1.mod';
+data 'Simple Model 1.dat';
 
 # Display the problem formulation 
 expand  obj_function, schedule;
