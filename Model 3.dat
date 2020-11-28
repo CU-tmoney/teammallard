@@ -1,0 +1,29 @@
+# Staffing Model 3
+# Number of Employees Schedueled for Shift on a Day who are on Tea,
+
+# Number of Shifts
+param m = 5;
+
+# Hours in a Workday
+param n = 12;
+
+# Days in a Week
+param o = 5;
+
+# Number of Product Teams 
+param p = 5;
+
+# Shift Coefficient Matrix
+param a (tr):=
+
+
+
+# The Number of Agents Required for Each Hour for Each Day for Each Team
+
+# The cost of each shift
+param c:= 
+	1 160
+	2 160
+	3 160
+	4 160
+	5 160;
