@@ -6,8 +6,8 @@ param m = 5;
 # Hours in a Workday
 param n = 12;
 
-# Shift Coefficeint Matrix
-param a:
+# Shift Coefficient Matrix
+param a (tr):
 	1 2 3 4 5:=
 1   1 0 0 0 0
 2	1 1 0 0 0
