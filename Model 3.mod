@@ -56,5 +56,5 @@ minimize obj_function:
 # 3. Constraints
 
 subject to schedule {i in I}:
-	sum{j in J, k in K, l in L} a[i, j, k, l]*x[i, l, l] >= b[j];
+	sum{j in J, k in K, l in L} a[i, j, k, l]*x[i, l, l] >= b[j, k];
 	
