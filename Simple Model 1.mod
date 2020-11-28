@@ -40,4 +40,4 @@ minimize obj_function:
 # 3. Constraints
 
 subject to schedule {i in I}:
-	sum{j in J} a[i, j]*x[j] <= 10;
+	sum{j in J} a[i, j]*x[i] >= b[j];
