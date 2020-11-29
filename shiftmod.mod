@@ -10,7 +10,7 @@ set HOURS := {1..hours}; #hours
 set TEAMS := {1..teams}; #teams
 
 param hr{SHIFTS, HOURS}; #shifts matrix
-param tm{TEAMS, HOURS}; #teams matrix
+param tm{TEAMS, HOURS}; #teams call volume matrix
 
 
 # 1. Decision Variable
@@ -31,4 +31,4 @@ subject to schedule {i in SHIFTS}:
 
 # minimum required people per team based on call freq
 subject to teamstaff {l in TEAMS}:
-	sum{j in HOURS} tm[l, j]*x[j] >= x[tm]/10;
+	sum{j in HOURS} (tm[l, j]/10)*x[j] >= 1;
