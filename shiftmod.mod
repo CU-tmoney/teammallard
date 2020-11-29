@@ -9,8 +9,8 @@ set SHIFTS := {1..shifts}; #shifts
 set HOURS := {1..hours}; #hours
 set TEAMS := {1..teams}; #teams
 
-param hr{SHIFTS, HOURS}; #constraint coefficient matrix
-param tm{TEAMS, HOURS}; #teams per hour
+param hr{SHIFTS, HOURS}; #shifts matrix
+param tm{TEAMS, HOURS}; #teams matrix
 
 
 # 1. Decision Variable
@@ -20,13 +20,13 @@ var x{HOURS} integer; #people per hour
 
 # 2. Objective Function: Minimize Staffing Cost
 
-minimize obj_function:
-	sum{j in HOURS} hrcost * x[hours];
+minimize obj_func:
+	sum{j in HOURS} hrcost * x[j];
 	
 # 3. Constraints
 
 subject to schedule {i in SHIFTS}:
-	sum{j in HOURS} hr[shifts, hours]*x[hours] >= 1;
+	sum{j in HOURS} hr[i, j]*x[j] >= 1;
 
 subject to teamstaff {l in TEAMS}:
-	sum{j in HOURS} tm[teams, hours]*x[hours] >= 1;
+	sum{j in HOURS} tm[l, j]*x[j] >= 1;
