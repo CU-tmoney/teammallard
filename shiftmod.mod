@@ -14,22 +14,22 @@ param tm{TEAMS, HOURS}; #teams call volume matrix
 
 # 1. Decision Variable
 
-var x{HOURS} integer; #people per hour
+var staff{HOURS} integer; #people per hour
 
 
 # 2. Objective Function: Minimize Staffing Cost
 
 minimize obj_func:
-	sum{j in HOURS} wage * x[j];
+	sum{j in HOURS} wage * staff[j];
 	
 # 3. Constraints
 
 # minimum required people per shift
 subject to schedule {i in SHIFTS}:
-	sum{j in HOURS} hr[i, j]*x[j] >= 1;
+	sum{j in HOURS} hr[i, j]*staff[j] >= 1;
 
 # minimum required people per team based on call freq
 # Not sure I'm formatting this constraing in the proper way
 # Should be ppl/hr >= ( calls/team/hr)/10
-subject to teamstaff {l in TEAMS}:
-	sum{j in HOURS} x[j] >= tm[l, j]/10;
+subject to teamstaff {l in TEAMS, j in HOURS}:
+	staff[j] >= tm[l, j]/10;
