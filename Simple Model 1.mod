@@ -22,6 +22,7 @@ param n; # the hours in a work day (constraints)
 # m = 12: Hour 1700
 
 param p;
+param o;
 
 set I := {1..m}; #shifts
 set J := {1..n}; #hours
@@ -30,12 +31,13 @@ set L := {1..o}; #teams
 
 param c{I}; #objective function coefficient
 param a{I, J}; #constraint coefficient matrix
-param promix{L, K};
+param d{L, K}; #constraint coef matrix teams/producs
 param b{J}; #RHS of constraints
 
-# 1. Decision Variable: The Number of People Assigned to Shift i (i = 1, 2, ,3 ,4 ,5)
+# 1. Decision Variable
 
-var x{I} integer; 
+var x{I} integer; #people to shift
+
 
 # 2. Objective Function: Minimize Staffing Cost
 
@@ -48,4 +50,4 @@ subject to schedule {i in I}:
 	sum{j in J} a[i, j]*x[i] >= b[i];
 
 subject to products {l in L}:
-	sum{k in K} promix[l,k]*x[l] >= 
+	sum{k in K} d[l,k]*x[l] >= b[l];
