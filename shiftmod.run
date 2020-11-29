@@ -8,7 +8,7 @@ model 'shiftmod.mod';
 data 'shiftmod.dat';
 
 # Display the problem formulation 
-expand  obj_function, schedule, teamstaff;
+expand  obj_func, schedule, teamstaff;
 
 # Change the Solver 
 option solver cplex;

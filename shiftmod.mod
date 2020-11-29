@@ -25,8 +25,10 @@ minimize obj_func:
 	
 # 3. Constraints
 
+# minimum required people per shift
 subject to schedule {i in SHIFTS}:
 	sum{j in HOURS} hr[i, j]*x[j] >= 1;
 
+# minimum required people per team based on call freq
 subject to teamstaff {l in TEAMS}:
-	sum{j in HOURS} tm[l, j]*x[j] >= 1;
+	sum{j in HOURS} tm[l, j]*x[j] >= x[tm]/10;
