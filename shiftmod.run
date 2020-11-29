@@ -1,0 +1,20 @@
+# Reset AMPL environment
+reset;
+
+# Load the model
+model 'shiftmod.mod';
+
+# Load the data
+data 'shiftmod.dat';
+
+# Display the problem formulation 
+expand  obj_function, schedule;
+
+# Change the Solver 
+option solver cplex;
+
+# Solve
+solve;
+
+# Show results
+display x, obj_function;
