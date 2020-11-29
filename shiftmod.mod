@@ -3,7 +3,7 @@
 param shifts; # the number of shifts (variables)
 param hours; # the hours in a work day (constraints)
 param teams; # number of teams
-var wage := 20; # avg cost per hour labor
+param wage := 20; # avg cost per hour labor
 
 set SHIFTS := {1..shifts}; #shifts
 set HOURS := {1..hours}; #hours
@@ -20,7 +20,7 @@ var staff{HOURS} integer; #people per hour
 # 2. Objective Function: Minimize Staffing Cost
 
 minimize obj_func:
-	sum{j in HOURS} wage * staff[j];
+	sum{j in HOURS} staff[j]*wage;
 	
 # 3. Constraints
 
