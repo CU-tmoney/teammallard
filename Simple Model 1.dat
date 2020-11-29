@@ -9,6 +9,9 @@ param n = 12;
 # Number of Products
 param p = 19;
 
+# Number of teams
+param o = 5;
+
 # Shift Coefficient Matrix
 param a (tr):
 	1 2 3 4 5:=
