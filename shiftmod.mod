@@ -31,4 +31,4 @@ subject to schedule {i in SHIFTS}:
 
 # minimum required people per team based on call freq
 subject to teamstaff {l in TEAMS}:
-	sum{j in HOURS} (tm[l, j]/10)*x[j] >= 1;
+	sum{j in HOURS} x[j] >= tm[l, j]/10;
