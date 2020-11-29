@@ -51,7 +51,7 @@ param c:=
 	4 160
 	5 160;
 	
-# Teams Per Product
+# Team/Product Matrix
 param d (tr):
 	1 2 3 4 5:=
 1	1 0 0 0 0
