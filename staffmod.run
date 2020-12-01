@@ -17,5 +17,6 @@ option solver cplex;
 solve;
 
 # Show results
-display staff, obj_func;
+display staff;
 display stafftm;
+display obj_func;
