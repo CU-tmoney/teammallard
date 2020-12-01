@@ -32,4 +32,4 @@ s.t. teamstaff {i in TEAMS, j in HOURS}:
 
 # 8 hour shift per person
 s.t. shiftlimit {l in SHIFTS, j in HOURS}:
-	staff[l,j]*hr[l,j] = staff[l,l+7]*hr[l,j]
+	staff[l,j]*hr[l,j] = staff[l,l+8]*hr[l,j];
