@@ -16,8 +16,8 @@ param calls{TEAMS, HOURS}; #teams call volume matrix
 #param prodtm{TEAMS, PROD}; #team prod matrix
 
 # 1. Decision Variable
-var staff{SHIFTS, HOURS} integer; #people per hour
-
+var staff{SHIFTS, HOURS} integer; #people per shift per hour
+var stafftm{TEAMS, HOURS} integer; #people per team per hour
 
 # 2. Objective Function: Minimize Staffing Cost
 minimize obj_func:
@@ -34,5 +34,9 @@ s.t. shiftlimit {l in SHIFTS, j in HOURS}:
 	staff[l,j] = staff[l,l+8]*hr[l,j];
 
 # minimum required people per team based on call freq
-s.t. teamstaff {l in SHIFTS, j in HOURS, i in TEAMS}: 
-	staff[l,j] >= hr[l,j]*calls[i,j]/5;
+s.t. teamstaff {i in TEAMS, j in HOURS}: 
+	stafftm[i,j] >= calls[i,j]/5;
+
+# people per hour based on team call freq
+s.t. shiftreq {l in SHIFTS, j in HOURS}:
+	staff[l,j] >= sum{i in TEAMS}stafftm[i, j]*hr[l,j]
