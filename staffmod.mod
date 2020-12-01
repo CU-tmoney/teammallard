@@ -31,7 +31,7 @@ s.t. schedule {l in SHIFTS, j in HOURS}:
 
 # 8 hour shift per person
 s.t. shiftlimit {l in SHIFTS, j in HOURS}:
-	staff[l,j] = staff[l,l+8]*hr[l,j];
+	staff[l,j] = staff[l,l]*hr[l,j];
 
 # minimum required people per team based on call freq
 s.t. teamstaff {i in TEAMS, j in HOURS}: 
