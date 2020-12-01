@@ -25,7 +25,7 @@ minimize obj_func:
 	
 # 3. Constraints
 
-# minimum required teams per shift
+# minimum required teams per hour
 s.t. schedule {l in SHIFTS, j in HOURS}:
 	staff[l,j] >= hr[l,j]*teams;
 
