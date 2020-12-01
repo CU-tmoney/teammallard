@@ -1,0 +1,20 @@
+# Reset AMPL environment
+reset;
+
+# Load the model
+model 'staffmod.mod';
+
+# Load the data
+data 'staffmod.dat';
+
+# Display the problem formulation 
+expand  obj_func, schedule, shiftlimit, teamstaff;
+
+# Change the Solver 
+option solver cplex;
+
+# Solve
+solve;
+
+# Show results
+display staff, obj_func;
