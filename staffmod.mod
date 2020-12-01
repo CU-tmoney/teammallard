@@ -38,5 +38,6 @@ s.t. teamstaff {i in TEAMS, j in HOURS}:
 	stafftm[i,j] >= calls[i,j]/5;
 
 # people per hour based on team call freq
-s.t. shiftreq {l in SHIFTS, j in HOURS}:
-	staff[l,j] >= sum{i in TEAMS}stafftm[i, j]*hr[l,j]
+s.t. shiftreq {j in HOURS}:
+	sum{l in SHIFTS}staff[l,j]*hr[l,j] >= sum{i in TEAMS}stafftm[i, j]
+	
